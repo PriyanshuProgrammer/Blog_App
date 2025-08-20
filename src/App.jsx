@@ -5,7 +5,7 @@ import { Login } from './Redux/slices/Log_status'
 import AuthServices from './Services/auth'  // <-- your Appwrite service
 import './App.css'
 
-const App: React.FC = () => {
+const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {

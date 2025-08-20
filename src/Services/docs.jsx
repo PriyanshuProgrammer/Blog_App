@@ -1,4 +1,4 @@
-import { Client, Databases, Query, Storage, ID } from "appwrite"
+import { Client, Databases, Storage, ID } from "appwrite"
 import config from "../config"
 
 const client = new Client()
