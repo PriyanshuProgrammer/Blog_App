@@ -1,12 +1,11 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.tsx'
+import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Login_page, Sign_Up, Home,Addpost,AllPost } from './Pages/allpages.tsx'
+import { Login_page, Sign_Up, Home,Addpost,AllPost } from './Pages/allpages.jsx'
 import { Provider } from 'react-redux'
-import Store from './Redux/storage.ts'
-import Post from './assets/Post/Post.tsx'
-import { path } from 'motion/react-client'
+import Store from './Redux/storage.js'
+import Post from './assets/Post/Post.jsx'
 
 const router = createBrowserRouter([
   {
@@ -42,7 +41,7 @@ const router = createBrowserRouter([
 ])
 
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById('root')).render(
   <Provider store={Store}>
     <RouterProvider router={router} />
   </Provider>,

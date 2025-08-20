@@ -2,18 +2,10 @@ import { useRef } from 'react'
 import Button from '../button/Button'
 import './popup.css'
 
-interface props {
-  prop: PopupData;
-  onClose: () => void;
-}
 
-interface PopupData {
-  code: string;
-  message: string;
-}
 
-const Popup:React.FC<props> = ({ prop, onClose }) => {
-  const ref = useRef<HTMLDivElement | null>(null)
+const Popup: = ({ prop, onClose }) => {
+  const ref = useRef(null)
 
 
   const popup_down = () => {
@@ -31,6 +23,7 @@ const Popup:React.FC<props> = ({ prop, onClose }) => {
   if (!prop) return null;
 
   return (
+    <>
     <div id='main_bg'>
       <div id='bg'></div>
       <div ref={ref} id='sheet'>

@@ -1,10 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface props{
-    status?: boolean,
-    data?: any
-}
-const initialState:props = {
+const initialState = {
     status: false,
     data: null
 }

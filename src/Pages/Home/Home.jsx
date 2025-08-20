@@ -8,14 +8,10 @@ import AuthServices from '../../Services/auth'
 import { Logout } from '../../Redux/slices/Log_status'
 import Popup from '../../assets/error pop-up/popup'
 
-interface props {
-  x: number,
-  y: number
-}
 const Home = () => {
   const main_ref = useRef(null)
-  const main_position: props = useSpotlight(main_ref)
-  const status = useSelector((state: any) => state.status.status);
+  const main_position = useSpotlight(main_ref)
+  const status = useSelector((state) => state.status.status);
   const mid_text = useRef(null)
   const dispatch = useDispatch()
   const [maskSize, setMaskSize] = useState(200)
@@ -28,10 +24,10 @@ const Home = () => {
 
 
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
+    const handleClickOutside = (e) => {
       if (
-        !document.getElementById('dropdown')?.contains(e.target as Node) &&
-        !document.getElementById('dropdownMenu')?.contains(e.target as Node)
+        !document.getElementById('dropdown')?.contains(e.target) &&
+        !document.getElementById('dropdownMenu')?.contains(e.target)
       ) {
         setIsDropdownOpen(false)
       }
@@ -160,7 +156,7 @@ const Home = () => {
             "--main_position-x": maskSize === 400 ? `${main_position.x - 200}px` : `${main_position.x - 100}px`,
             "--main_position-y": maskSize === 400 ? `${main_position.y - 200}px` : `${main_position.y - 100}px`,
             "--mask_size": `${maskSize}px`,
-          } as React.CSSProperties}>
+          }}>
           <div className='logo'>
             <svg className='hidden' id="Layer_2_Default" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 595.28 841.89" width="100" height="100">
               <polygon fill="#fff" points="324.05 142.8 531.27 263 324.05 392.59 324.05 142.8" />

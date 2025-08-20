@@ -16,7 +16,7 @@ const AuthServices = {
             }
         }
         catch (error) {
-            console.log(`ERROR : SERVICE AUTH.TS : createAccount ${error}`);
+            console.log(`ERROR : SERVICE AUTH.JS : createAccount ${error}`);
             return error;
         }
     },

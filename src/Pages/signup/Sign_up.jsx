@@ -12,16 +12,12 @@ import { Link } from 'react-router-dom'
 import Popup from '../../assets/error pop-up/popup'
 
 
-interface props {
-    x: number,
-    y: number
-}
 
 
-const Sign_Up: React.FC = () => {
-    const ref = useRef<HTMLDivElement>(null);
+const Sign_Up = () => {
+    const ref = useRef(null);
     const dispatch = useDispatch()
-    const { x, y }: props = useSpotlight(ref);
+    const { x, y } = useSpotlight(ref);
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm()
     const [Error, setError] = useState(false)
@@ -45,7 +41,8 @@ const Sign_Up: React.FC = () => {
         }
     }
     return (
-        <>
+    <>
+        
             {Error && (
                 <div id='error_appear_zone'>
                     <Popup prop={ErrorData} onClose={() => {
@@ -63,13 +60,13 @@ const Sign_Up: React.FC = () => {
                     style={{
                         '--x': `${x}px`,
                         '--y': `${y}px`
-                    } as React.CSSProperties}>
-                    <header>
+                    }}>
+                    
                         <h3>Sign Up</h3>
-                        <span>Enter your credentials to create your account</span>
+                        Enter your credentials to create your account</span>
                     </header>
                     <div className='line'></div>
-                    <main>
+                    
                         <form onSubmit={handleSubmit(Create)}>
                             <div className='butt-login'>
                                 <Input label="Name" placeholder='Name' {...register('name', { required: true })} />

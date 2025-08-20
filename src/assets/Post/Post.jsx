@@ -5,16 +5,9 @@ import DocumentServices from '../../Services/docs'
 import Button from '../../assets/button/Button'
 import './Post.css'
 
-interface Props {
-  title?: string
-  content?: string
-  writer?: string
-  id?: string
-}
-
-const Post: React.FC<Props> = ({ title, content, writer }) => {
-  const { id } = useParams<{ id: string }>()
-  const [post, setPost] = useState<any>(null)
+const Post = ({ title, content, writer }) => {
+  const { id } = useParams()
+  const [post, setPost] = useState(null)
 
   useEffect(() => {
     if (id) {
@@ -27,6 +20,7 @@ const Post: React.FC<Props> = ({ title, content, writer }) => {
   if (!post) return <p>Loading...</p>
 
   return (
+    <>
     <div id="post_post">
       <div id="Post_title">{post.title || title}</div>
       <div id="Post_content">{parse(post.content || content || '')}</div>
