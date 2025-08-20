@@ -20,6 +20,7 @@ const AllPost = () => {
   }, [])
 
   return (
+    <>
     <div id="allpos_body">
       {posts.length > 0 ? (
         

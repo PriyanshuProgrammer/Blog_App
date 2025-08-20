@@ -13,7 +13,7 @@ import Popup from '../../assets/error pop-up/popup'
 
 const Login_page = () => {
     const ref = useRef(null);
-    const { x, y }: Position = useSpotlight(ref);
+    const { x, y } = useSpotlight(ref);
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const { register, handleSubmit } = useForm()
@@ -41,7 +41,8 @@ const Login_page = () => {
     }
 
     return (
-        
+    <>
+        <>
             {Error && (
                 <div id='error_appear_zone'>
                     <Popup prop={ErrorData} onClose={() => {
@@ -59,13 +60,13 @@ const Login_page = () => {
                     style={{
                         '--x': `${x}px`,
                         '--y': `${y}px`
-                    } as any}>
-                    
+                    }}>
+                    <header>
                         <h3>Login</h3>
-                        Enter your credentials to access your account</span>
+                        <span>Enter your credentials to access your account</span>
                     </header>
                     <div className='form-divider'></div>
-                    
+                    <main>
                         <form onSubmit={handleSubmit(Trigger_login)}>
                             <div className='form-group'>
                                 <Input label="E-mail" placeholder='name@example.com' {...register('email', { required: true })} />

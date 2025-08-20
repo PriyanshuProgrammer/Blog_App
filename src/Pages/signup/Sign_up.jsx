@@ -41,6 +41,7 @@ const Sign_Up = () => {
         }
     }
     return (
+    <>
         
             {Error && (
                 <div id='error_appear_zone'>
@@ -59,7 +60,7 @@ const Sign_Up = () => {
                     style={{
                         '--x': `${x}px`,
                         '--y': `${y}px`
-                    } as any}>
+                    }}>
                     
                         <h3>Sign Up</h3>
                         Enter your credentials to create your account</span>

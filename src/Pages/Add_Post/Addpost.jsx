@@ -72,6 +72,7 @@ const Addpost = () => {
   }
 
   return (
+    <>
     <div id='main_addpost'>
       {Error && (
         <div id='error_appear_zone'>

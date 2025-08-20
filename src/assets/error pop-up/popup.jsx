@@ -23,6 +23,7 @@ const Popup: = ({ prop, onClose }) => {
   if (!prop) return null;
 
   return (
+    <>
     <div id='main_bg'>
       <div id='bg'></div>
       <div ref={ref} id='sheet'>

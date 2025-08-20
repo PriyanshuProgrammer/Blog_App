@@ -17,10 +17,11 @@ const Card = ({ title, content, writer, id }:props) => {
         Post({title,content,writer})
     }
     return (
+    <>
             <div id='card' ref={ref} style={{
                 '--x': `${x}px`,
                 '--y': `${y}px`
-            } as any}>
+            }}>
 
                 <div id='card_title'>{title}</div>
                 <div id='card_content'>{parse(content)}</div>

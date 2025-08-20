@@ -8,6 +8,7 @@ function UseEditor({ value, onChange, ...rest }) {
   const { x, y } = useSpotlight(containerRef);
 
   return (
+    <>
     <div
       className="card spotlight-container"
       ref={containerRef}

@@ -20,6 +20,7 @@ const Post = ({ title, content, writer }) => {
   if (!post) return <p>Loading...</p>
 
   return (
+    <>
     <div id="post_post">
       <div id="Post_title">{post.title || title}</div>
       <div id="Post_content">{parse(post.content || content || '')}</div>
