@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
-function useSpotlight(ref: React.RefObject<HTMLElement | null>) {
+function useSpotlight(ref) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    function handleMouseMove(e: MouseEvent) {
+    function handleMouseMove(e) {
       if (!ref.current) return;
       const rect = ref.current.getBoundingClientRect();
       setPosition({

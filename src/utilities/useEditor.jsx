@@ -3,22 +3,17 @@ import { Editor } from "primereact/editor";
 import useSpotlight from './useSpotlight';
 import './UseEditor.css';
 
-interface Position {
-  x: number;
-  y: number;
-}
-
 function UseEditor({ value, onChange, ...rest }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { x, y }: Position = useSpotlight(containerRef);
+  const containerRef = useRef(null);
+  const { x, y } = useSpotlight(containerRef);
 
   return (
     <div
       className="card spotlight-container"
       ref={containerRef}
       style={{
-        ['--x' as any]: `${x}px`,
-        ['--y' as any]: `${y}px`
+        '--x': `${x}px`,
+        '--y': `${y}px`
       }}
     >
       <Editor
