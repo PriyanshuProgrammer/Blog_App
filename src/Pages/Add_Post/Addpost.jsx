@@ -12,28 +12,18 @@ import { useForm, Controller } from 'react-hook-form'
 import { Logout } from '../../Redux/slices/Log_status'
 import DocumentServices from '../../Services/docs'
 
-interface Position {
-  x: number,
-  y: number
-}
-
-interface data {
-  title:string;
-  content:any;
-  writer:string;
-}
 const Addpost = () => {
-  const status: Boolean = useSelector((state: any) => state.status.status);
+  const status = useSelector((state) => state.status.status);
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const [Error, setError] = useState<Boolean>(false)
-  const [ErrorData, setErrorData] = useState<object | null>(null)
-  const [isDropdownOpen, setIsDropdownOpen] = useState<Boolean>(false)
-  const ref = useRef<HTMLDivElement | null>(null)
-  const { x, y }: Position = useSpotlight(ref)
+  const [Error, setError] = useState(false)
+  const [ErrorData, setErrorData] = useState(null)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const ref = useRef(null)
+  const { x, y } = useSpotlight(ref)
   const { register, handleSubmit, control } = useForm();
 
-  const Triggerd_Logout = async ():Promise<void> => {
+  const Triggerd_Logout = async () => {
     try {
       await AuthServices.Logout()
       localStorage.removeItem('user')
@@ -45,23 +35,23 @@ const Addpost = () => {
       // error popup
     }
   }
-  const handleDropdownToggle = ():void => {
+  const handleDropdownToggle = () => {
     setIsDropdownOpen((prev) => !prev)
   }
   useEffect(() => {
   }, [status])
 
-  const navigationAddpost = ():void => {
+  const navigationAddpost = () => {
     navigate('/Addpost')
   }
-  const navigationAllPost = ():void => {
+  const navigationAllPost = () => {
     navigate('/AllPost')
   }
 
-  const Post_Post = async (data:data) => {
+  const Post_Post = async (data) => {
     if (status) {
       try {
-        const userdata:Object = await DocumentServices.create(data)
+        const userdata = await DocumentServices.create(data)
         setError(true)
         if (userdata?.$id) {
           setErrorData({
@@ -137,7 +127,7 @@ const Addpost = () => {
                   )}
                 />
               </div>
-              <div>
+              
                 <Input label="Writer" placeholder='@User' style={{ width: "69vw" }} {...register('writer', { required: true })} />
               </div>
               <div id="submit">
@@ -149,7 +139,7 @@ const Addpost = () => {
           </div>
         </div>
       ) : (
-        <div id='login-not-found' ref={ref} style={{ '--x': `${x}px`, '--y': `${y}px` } as React.CSSProperties}>
+        <div id='login-not-found' ref={ref} style={{ '--x': `${x}px`, '--y': `${y}px` }}>
 
           <div id="login-not-found-msg">
             <div id="addpost_login_visible">

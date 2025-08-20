@@ -1,15 +1,7 @@
-import React, { type CSSProperties } from 'react';
 import './input.css';
 
-interface Props {
-  label: string;
-  type?: string;
-  placeholder?: string;
-  style?: CSSProperties;
-  custom_div?: React.ReactNode;
-}
 
-const Input: React.FC<Props> = ({
+const Input = ({
   style,
   label,
   type = 'text',

@@ -10,13 +10,9 @@ import { Login } from '../../Redux/slices/Log_status'
 import { Link, useNavigate } from 'react-router-dom'
 import Popup from '../../assets/error pop-up/popup'
 
-interface Position {
-    x: number,
-    y: number
-}
 
-const Login_page: React.FC = () => {
-    const ref = useRef<HTMLDivElement>(null);
+const Login_page = () => {
+    const ref = useRef(null);
     const { x, y }: Position = useSpotlight(ref);
     const dispatch = useDispatch();
     const navigate = useNavigate()
@@ -45,7 +41,7 @@ const Login_page: React.FC = () => {
     }
 
     return (
-        <>
+        
             {Error && (
                 <div id='error_appear_zone'>
                     <Popup prop={ErrorData} onClose={() => {
@@ -63,13 +59,13 @@ const Login_page: React.FC = () => {
                     style={{
                         '--x': `${x}px`,
                         '--y': `${y}px`
-                    } as React.CSSProperties}>
-                    <header>
+                    } as any}>
+                    
                         <h3>Login</h3>
-                        <span>Enter your credentials to access your account</span>
+                        Enter your credentials to access your account</span>
                     </header>
                     <div className='form-divider'></div>
-                    <main>
+                    
                         <form onSubmit={handleSubmit(Trigger_login)}>
                             <div className='form-group'>
                                 <Input label="E-mail" placeholder='name@example.com' {...register('email', { required: true })} />

@@ -2,7 +2,7 @@ import React from 'react'
 import DocumentServices from '../../Services/docs'
 import Card from '../../assets/Crad/Card'
 import './AllPost.css'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Button from '../../assets/button/Button'
 
 
@@ -10,7 +10,7 @@ const AllPost = () => {
   const [posts, setPosts] = React.useState([])
 
   React.useEffect(() => {
-    DocumentServices.gets([]).then((res) => {
+    DocumentServices.gets().then((res) => {
       if (res && res.documents) {
         setPosts(res.documents)
         console.log(posts);
@@ -22,7 +22,7 @@ const AllPost = () => {
   return (
     <div id="allpos_body">
       {posts.length > 0 ? (
-        <>
+        
           <div id="back">
             <Link to="/">
               <Button type="button" width="5vw" work="Home" bgcolor="ff6200" />
@@ -46,6 +46,7 @@ const AllPost = () => {
                     content={post.content}
                     writer={post.writer}
                     id={post.$id}
+                    onClick={() => {}}
                   />
                 </Link>
               ))}

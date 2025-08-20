@@ -78,7 +78,7 @@ const Home = () => {
   }
 
   return (
-    <>
+    
       {Error && (
         <div id='error_appear_zone'>
           <Popup prop={{ code: "LoL", message: "Logout Succesfully" }} onClose={() => {

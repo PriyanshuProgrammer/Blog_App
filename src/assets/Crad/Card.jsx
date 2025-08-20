@@ -5,15 +5,8 @@ import parse from 'html-react-parser';
 import Post from '../../assets/Post/Post'
 import { useNavigate } from 'react-router-dom';
 
-interface props {
-    title: string;
-    content: string;
-    writer: string;
-    id: string;
-    onClick: () => void
-}
 const Card = ({ title, content, writer, id }:props) => {
-    const ref = useRef<HTMLDivElement | null>(null)
+    const ref = useRef(null)
     const { x, y } = useSpotlight(ref)
     const post_id = id;
     const navigate = useNavigate()
@@ -27,7 +20,7 @@ const Card = ({ title, content, writer, id }:props) => {
             <div id='card' ref={ref} style={{
                 '--x': `${x}px`,
                 '--y': `${y}px`
-            } as React.CSSProperties}>
+            } as any}>
 
                 <div id='card_title'>{title}</div>
                 <div id='card_content'>{parse(content)}</div>
